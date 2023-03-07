@@ -34,12 +34,21 @@ public class Supplier {
   @Column(name = "email")
   private String email;
 
-  @Column(name = "identity")
-  private String identity;
+  @Column(name = "address")
+  private String address;
 
-  @Column(name = "description")
-  private String description;
+  @Column(name = "address2")
+  private String address2;
   
-  @Column(name = "addressId")
-  private Long addressId;
+  @Column(name = "city")
+  private String city;
+
+  @Column(name = "state")
+  private String state;
+
+  @Column(name = "zip")
+  private String zip;
+
+  @Column(name = "country")
+  private String country;
 }

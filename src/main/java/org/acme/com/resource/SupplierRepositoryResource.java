@@ -1,5 +1,6 @@
 package org.acme.com.resource;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -59,6 +60,7 @@ public class SupplierRepositoryResource {
         if (supplier.getName() == "") {
             throw new WebApplicationException("Supplier was invalidly set on request.", 422);
         }
+        supplier.setCreateData(LocalDate.now());
         supplierRepository.persist(supplier);
         return Response.ok(supplier).status(201).build();
     }
@@ -79,8 +81,12 @@ public class SupplierRepositoryResource {
         entity.setName(supplier.getName());  
         entity.setPhone(supplier.getPhone());
         entity.setEmail(supplier.getEmail());
-        entity.setIdentity(supplier.getIdentity());
-        entity.setDescription(supplier.getDescription());
+        entity.setAddress(supplier.getAddress());
+        entity.setAddress2(supplier.getAddress2());
+        entity.setCity(supplier.getCity());
+        entity.setState(supplier.getState());
+        entity.setZip(supplier.getZip());
+        entity.setCountry(supplier.getCountry());
         
         return entity;
     }
