@@ -60,7 +60,7 @@ public class SupplierRepositoryResource {
         if (supplier.getName() == "") {
             throw new WebApplicationException("Supplier was invalidly set on request.", 422);
         }
-        supplier.setCreateData(LocalDate.now());
+        supplier.setCreateDate(LocalDate.now());
         supplierRepository.persist(supplier);
         return Response.ok(supplier).status(201).build();
     }
